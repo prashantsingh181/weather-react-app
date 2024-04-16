@@ -1,8 +1,8 @@
 import React from "react";
 
-const SearchBar = ({ searchValue, setSearchValue }) => {
+const SearchBar = ({ searchValue, setSearchValue, handleSubmit }) => {
   return (
-    <div className="search-bar">
+    <form className="search-bar" onSubmit={handleSubmit}>
       <input
         type="text"
         name="search-value"
@@ -12,7 +12,7 @@ const SearchBar = ({ searchValue, setSearchValue }) => {
       <button>
         <i className="bi bi-search"></i>
       </button>
-    </div>
+    </form>
   );
 };
 
