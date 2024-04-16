@@ -24,18 +24,49 @@ li {
   place-items: center;
 }
 
+/* Loader */
+.loader-container {
+  padding-block: 2rem;
+  display: grid;
+  place-items: center;
+}
+.loader {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+
+/* Weather Card */
 .weather-card {
   background-color: #ffffff;
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.75rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 30px rgba(1, 41, 112, 0.1);
 }
 
 .card-heading {
   color: #012970;
+  padding-block: 0.5rem;
 }
 
 .info-text {
@@ -76,4 +107,61 @@ li {
   font-size: 1.25rem;
   color: #012970;
   cursor: pointer;
+}
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.location-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.location-container .location {
+  font-size: 1.5rem;
+  color: #012970;
+}
+.location-coords {
+  color: rgb(220, 53, 69);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.location-icon {
+  color: rgb(204, 29, 29);
+}
+.weather-content {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.weather-content img {
+  height: 6rem;
+}
+.weather-description {
+  display: flex;
+  flex-flow: column nowrap;
+  color: rgb(33, 37, 41);
+  opacity: 0.5;
+}
+.weather-description-primary {
+  font-size: 2rem;
+  padding-block: 0.5rem;
+}
+.weather-description-secondary {
+  padding-block: 0.5rem;
+  text-align: center;
+  border-top: 1px solid rgb(33, 37, 41);
+}
+.temp-container {
+  text-align: center;
+  font-size: 3rem;
+  border: 1px solid rgb(33, 37, 41);
+  border-width: 1px 0px 1px 0px;
 }
