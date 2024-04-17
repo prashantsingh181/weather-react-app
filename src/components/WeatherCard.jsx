@@ -5,9 +5,9 @@ const WeatherCard = ({ loading, weatherData }) => {
     if (loading) {
         return <div className="loader-container"><div className="loader" /></div>
     } else if (weatherData) {
-        return <div className="weather-container">
-            <div className="location-container">
-                <span className="location">{`${weatherData.name} / ${weatherData.sys.country}`}</span>
+        return <div className="weather-card">
+            <div className="row">
+                <span className="location">{`${weatherData.name}, ${weatherData.sys.country}`}</span>
                 <span className="location-coords">
                     <FaLocationDot />
                     {`${weatherData.coord.lat} / ${weatherData.coord.lon}`}
@@ -16,7 +16,11 @@ const WeatherCard = ({ loading, weatherData }) => {
             <div className="temp-container">
                 {`${weatherData.main.temp} K`}
             </div>
-            <div className="weather-content">
+            <div className="row humidity-wind">
+                <span>Humidity: {weatherData.main.humidity}</span>
+                <span>Wind Speed: {weatherData.wind.speed}</span>
+            </div>
+            <div className="row weather-content">
                 <img
                     src={`https://openweathermap.org/img/wn/${weatherData.weather[0]?.icon}@2x.png`}
                     alt="weather icon"
